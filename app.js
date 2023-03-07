@@ -124,10 +124,7 @@ const requestedPostId = req.params.postName;
 });
 
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
+const port = 5000;
 
 
 app.listen(port, function() {
