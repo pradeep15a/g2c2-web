@@ -18,7 +18,7 @@ app.set(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname+ "/public"));
 app.use(cors());
-mongoose.connect('mongodb+srv://g2c2:uvce@cluster0.55ojnes.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser : true, useUnifiedTopology : true})
+mongoose.connect('mongodb+srv://uvceg2c2:2KhhRZuUZDG7Zjol@cluster0.buq7ypl.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser : true, useUnifiedTopology : true})
 
 const postSchema = {
   title: String,
