@@ -13,6 +13,7 @@ const homeStartingContent = "Green Warrior Challenge is a monthly competition wh
 const app = express();
 
 app.set('view engine', 'ejs');
+app.set(express.static(__dirname + '/views'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
