@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 
 
@@ -15,6 +16,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+app.use(cors());
 mongoose.connect('mongodb+srv://g2c2:uvce@cluster0.55ojnes.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser : true, useUnifiedTopology : true})
 
 const postSchema = {
@@ -124,7 +126,7 @@ const requestedPostId = req.params.postName;
 });
 
 
-const port = 5000;
+const port = 8000;
 
 
 app.listen(port, function() {
