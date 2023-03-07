@@ -15,9 +15,9 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
-mongoose.connect("mongodb+srv://g2c2:uvce@cluster0.55ojnes.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true});
-
+mongoose.connect('mongodb+srv://g2c2:uvce@cluster0.55ojnes.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser : true, useUnifiedTopology : true})
+        .then(() => app.listen(port, () => console.log(`SERVER IS RUNNING ON THE PORT ${port}`)))
+        .catch((err) => console.log(err.message));
 const postSchema = {
   title: String,
   question: String,
@@ -129,8 +129,3 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
 }
-
-
-app.listen(port, function() {
-  console.log(`Server started on port ${port}`);
-});
