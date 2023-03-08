@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 
-
 const homeStartingContent = "Green Warrior Challenge is a monthly competition where Participants have to come up with practical solutions for some of the current real world environmental issues. Problem statement will be released during the beginning of every month and the participants will have over a week of time to pitch in their solutions.";
 
 const app = express();
@@ -65,13 +64,17 @@ app.post("/compose", function(req, res){
     winner:req.body.winnerTitle,
     content: req.body.postBody
   });
+  const secKey = req.body.secKey;
 
-
-  post.save(function(err){
-    if (!err){
-        res.redirect("/challenge");
-    }
-  });
+  if(secKey === "g2c2@admin"){
+    post.save(function(err){
+      if (!err){
+          res.redirect("/challenge");
+      }
+    });
+  } else {
+      res.redirect('/compose');
+  }
 });
 
 
@@ -135,4 +138,4 @@ app.listen(port, function() {
 });
 
 
-module.exports = app;
+// module.exports = app;
